@@ -37,6 +37,9 @@ dependencies:
       kotlinx-coroutines-core:
         alias: kotlinx.coroutines.core
         version: ${versions.kotlinx.coroutines}
+      kotlinx-serialization-core:
+        alias: kotlinx.serialization.core
+        version: ${versions.kotlinx.serialization}
       kotlinx-serialization-json:
         alias: kotlinx.serialization.json
         version: ${versions.kotlinx.serialization}

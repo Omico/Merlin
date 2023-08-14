@@ -13,7 +13,11 @@ dependencies {
 }
 
 dependencies {
+    implementation(jsoup)
     implementation(kotlinx.cli)
+    implementation(kotlinx.coroutines.core)
+    implementation(kotlinx.serialization.json)
+    implementation(kotlinx.serialization.protobuf)
 }
 
 tasks.run<JavaExec> {
