@@ -10,6 +10,9 @@ sealed interface Dependency {
     val group: String
     val artifact: String
     val versions: List<String>
+
+    val module: String
+        get() = "$group:$artifact"
 }
 
 @Serializable
@@ -18,9 +21,7 @@ data class Library(
     override val group: String,
     override val artifact: String,
     override val versions: List<String>,
-) : Dependency {
-    val module: String = "$group:$artifact"
-}
+) : Dependency
 
 @Serializable
 @SerialName("plugin")
