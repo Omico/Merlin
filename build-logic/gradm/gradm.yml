@@ -15,11 +15,13 @@ repositories:
   omico:
   mavenCentral:
   gradlePluginPortal:
+  noUpdates:
 
 plugins:
   gradlePluginPortal:
     com.diffplug.spotless: ${versions.plugins.spotless}
     com.gradle.enterprise: ${versions.plugins.gradle.enterprise}
+  noUpdates:
     org.jetbrains.kotlin.jvm: ${versions.kotlin}
     org.jetbrains.kotlin.plugin.serialization: ${versions.kotlin}
   omico:
@@ -30,6 +32,10 @@ plugins:
 
 dependencies:
   mavenCentral:
+    org.jetbrains.kotlin:
+      kotlin-gradle-plugin:
+        alias: kotlinGradlePlugin
+        version: ${versions.kotlin}
     org.jetbrains.kotlinx:
       kotlinx-cli:
         alias: kotlinx.cli
