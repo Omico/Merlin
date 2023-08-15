@@ -8,7 +8,7 @@ consensus {
     publishing {
         publishToLocalRepository("MAVEN_OMICO_LOCAL_URI")
         createMavenPublication {
-            from(components["kotlin"])
+            from(components["java"])
         }
         publications.all {
             if (this !is MavenPublication) return@all
