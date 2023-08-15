@@ -4,5 +4,9 @@ package me.omico.merlin
 
 object IndexFiles {
     val Google: IndexFile = IndexFile("google")
-    val All: Set<IndexFile> = setOf(Google)
+    val Omico: IndexFile = IndexFile("omico")
+    val All: Set<IndexFile> = setOf(
+        Google,
+        Omico,
+    )
 }
