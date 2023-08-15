@@ -44,9 +44,7 @@ jobs:
         env:
           MAVEN_OMICO_LOCAL_URI: file://${{ github.workspace }}/maven.omico.me
         with:
-          arguments: |
-            :merlin-google:run
-            :merlin-omico:run
+          arguments: deployIndexes
 
       - name: Setup Pages
         id: pages
