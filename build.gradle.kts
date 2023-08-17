@@ -10,15 +10,24 @@ val deployIndexes by tasks.registering {
     )
 }
 
+val version = project.version.toString()
+
 val release by tasks.registering {
     group = "merlin"
     dependsOn("spotlessApply", deployIndexes)
     doLast {
-        val version = project.version.toString()
-        require(!version.endsWith("-SNAPSHOT")) {
-            "Cannot release a snapshot version."
-        }
+        require(!version.endsWith("-SNAPSHOT")) { "Cannot release a snapshot version." }
         exec { commandLine = listOf("git", "add", "gradle.properties") }
         exec { commandLine = listOf("git", "commit", "-m", "release: $version") }
+    }
+}
+
+val prepareNextRelease by tasks.registering {
+    group = "merlin"
+    dependsOn("spotlessApply")
+    doLast {
+        require(version.endsWith("-SNAPSHOT")) { "Cannot prepare for the next release with a non-snapshot version." }
+        exec { commandLine = listOf("git", "add", "gradle.properties") }
+        exec { commandLine = listOf("git", "commit", "-m", "Prepare for the next release") }
     }
 }
