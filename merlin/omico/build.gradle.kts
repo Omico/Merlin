@@ -9,6 +9,6 @@ application {
 tasks.run<JavaExec> {
     args(
         file(consensus.sensitiveProperty<String>("MAVEN_OMICO_LOCAL_URI")).absolutePath,
-        rootProject.buildDir.resolve("merlin").absolutePath,
+        rootProject.layout.buildDirectory.dir("merlin").get().asFile.absolutePath,
     )
 }

@@ -7,5 +7,5 @@ application {
 }
 
 tasks.run<JavaExec> {
-    args(rootProject.buildDir.resolve("merlin").absolutePath)
+    args(rootProject.layout.buildDirectory.dir("merlin").get().asFile.absolutePath)
 }
