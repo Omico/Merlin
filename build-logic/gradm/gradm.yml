@@ -1,15 +1,15 @@
 versions:
-  consensus: "0.5.0"
+  consensus: "0.8.0"
   gradle: "8.5"
-  jsoup: "1.16.1"
-  kotlin: "1.9.10"
+  jsoup: "1.17.2"
+  kotlin: "1.9.22"
   kotlinx:
     cli: "0.3.6"
     coroutines: "1.7.3"
-    serialization: "1.6.0"
+    serialization: "1.6.2"
   plugins:
-    gradle.enterprise: "3.15.1"
-    spotless: "6.22.0"
+    gradle.enterprise: "3.16.2"
+    spotless: "6.25.0"
 
 repositories:
   omico:
