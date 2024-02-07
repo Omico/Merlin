@@ -1,5 +1,5 @@
+import me.omico.gradle.initialization.includeAllSubprojectModules
 import me.omico.gradm.addDeclaredRepositories
-import me.omico.merlin.initialization.internal.includeMerlinModules
 
 addDeclaredRepositories()
 
@@ -10,4 +10,4 @@ plugins {
 
 includeBuild("build-logic/project")
 
-includeMerlinModules()
+includeAllSubprojectModules("merlin")
