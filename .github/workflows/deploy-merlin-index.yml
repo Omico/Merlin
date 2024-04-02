@@ -22,8 +22,15 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  build:
+  gradle-wrapper-validation:
+    name: Gradle Wrapper validation
+    uses: OmicoDev/gradle-project-initializer-template/.github/workflows/gradle-wrapper-validation.yml@main
+
+  gradle-build:
+    name: Gradle Build
     runs-on: ubuntu-latest
+    needs:
+      - gradle-wrapper-validation
     steps:
       - uses: actions/checkout@v4
 
@@ -39,14 +46,15 @@ jobs:
         with:
           distribution: temurin
           java-version: 17
-          cache: gradle
 
-      - name: Setup and execute Gradle
-        uses: gradle/gradle-build-action@v3
-        env:
-          MAVEN_OMICO_LOCAL_URI: file://${{ github.workspace }}/maven.omico.me
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v3
         with:
-          arguments: deployIndexes
+          gradle-home-cache-cleanup: true
+
+      - env:
+          MAVEN_OMICO_LOCAL_URI: 'file://${{ github.workspace }}/maven.omico.me'
+        run: ./gradlew deployIndexes --no-daemon --stacktrace
 
       - name: Setup Pages
         id: pages
@@ -57,14 +65,12 @@ jobs:
           path: ./build/merlin
 
   deploy:
-    needs: build
-
+    runs-on: ubuntu-latest
+    needs:
+      - gradle-build
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-
-    runs-on: ubuntu-latest
-
+      url: '${{ steps.deployment.outputs.page_url }}'
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
