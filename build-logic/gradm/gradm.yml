@@ -1,6 +1,6 @@
 versions:
   consensus: "0.8.0"
-  gradle: "8.5"
+  gradle: "8.7"
   jsoup: "1.17.2"
   kotlin: "1.9.22"
   kotlinx:
