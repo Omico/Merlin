@@ -8,7 +8,7 @@ versions:
     coroutines: "1.8.0"
     serialization: "1.6.3"
   plugins:
-    gradle.enterprise: "3.16.2"
+    develocity: "3.17"
     spotless: "6.25.0"
 
 repositories:
@@ -20,7 +20,7 @@ repositories:
 plugins:
   gradlePluginPortal:
     com.diffplug.spotless: ${versions.plugins.spotless}
-    com.gradle.enterprise: ${versions.plugins.gradle.enterprise}
+    com.gradle.develocity: ${versions.plugins.develocity}
   noUpdates:
     org.jetbrains.kotlin.jvm: ${versions.kotlin}
     org.jetbrains.kotlin.plugin.serialization: ${versions.kotlin}
