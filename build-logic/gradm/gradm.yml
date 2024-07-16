@@ -1,15 +1,15 @@
 versions:
   consensus: "0.9.0"
   gradle: "8.9"
-  jsoup: "1.17.2"
-  kotlin: "1.9.23"
+  jsoup: "1.18.1"
+  kotlin: "2.0.0"
   kotlinx:
     cli: "0.3.6"
-    coroutines: "1.8.0"
-    serialization: "1.6.3"
+    coroutines: "1.8.1"
+    serialization: "1.7.1"
   plugins:
-    develocity: "3.17"
-    spotless: "6.25.0"
+    develocity: "3.17.5"
+    spotless: "7.0.0.BETA1"
 
 repositories:
   omico:
