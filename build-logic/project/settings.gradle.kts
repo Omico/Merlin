@@ -1,4 +1,4 @@
-rootProject.name = "merlin-project"
+rootProject.name = "merlin-build-logic-project"
 
 pluginManagement {
     includeBuild("../gradm")
