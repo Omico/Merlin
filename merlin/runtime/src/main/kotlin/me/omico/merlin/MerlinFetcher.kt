@@ -1,8 +1,8 @@
-// Copyright 2023 Omico
+// Copyright 2023-2024 Omico
 // SPDX-License-Identifier: Apache-2.0
 package me.omico.merlin
 
-import java.net.URL
+import java.net.URI
 import java.nio.file.Path
 import kotlin.io.path.exists
 import kotlin.io.path.readText
@@ -16,9 +16,9 @@ object MerlinFetcher {
         val localHashFile = localSaveDirectory.resolve(indexFile.hash)
         val localIndexFile = localSaveDirectory.resolve(indexFile.name)
         val result = runCatching {
-            val remoteHash = URL("$BASE_URL/${indexFile.hash}").readText()
+            val remoteHash = URI.create("$BASE_URL/${indexFile.hash}").toURL().readText()
             if (localHashFile.exists() && remoteHash == localHashFile.readText()) return Status.UpToDate(remoteHash)
-            URL("$BASE_URL/${indexFile.name}").readBytes().let(localIndexFile::writeBytes)
+            URI.create("$BASE_URL/${indexFile.name}").toURL().readBytes().let(localIndexFile::writeBytes)
             remoteHash
         }
         val remoteHash = result.getOrElse { exception -> return Status.Failure(exception = exception) }

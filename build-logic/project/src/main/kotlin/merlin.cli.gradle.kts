@@ -1,7 +1,7 @@
 plugins {
-    id("merlin.gradm")
     application
-    kotlin("jvm")
+    id("merlin.gradm")
+    id("merlin.kotlin.jvm")
 }
 
 dependencies {

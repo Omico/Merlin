@@ -1,5 +1,5 @@
 plugins {
-    kotlin("jvm")
+    id("merlin.kotlin.jvm")
     kotlin("plugin.serialization")
     id("merlin.publishing")
 }
