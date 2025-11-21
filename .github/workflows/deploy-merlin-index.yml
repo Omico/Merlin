@@ -24,10 +24,10 @@ jobs:
       DEPENDENCY_GRAPH_EXCLUDE_PROJECTS: ':(gradm|initialization|project)'
     timeout-minutes: 3
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
 
       - name: Checkout Omico Maven Repository
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
         with:
           repository: Omico/maven.omico.me
           ref: repo
